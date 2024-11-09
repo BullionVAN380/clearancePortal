@@ -10,7 +10,7 @@ const PersonnelLogin = ({ setUserRole }) => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/personnel/login', {
+            const response = await axios.post('https://clearanceportalbackend.onrender.com/api/personnel/login', {
                 departmentName,
                 password,
             });
