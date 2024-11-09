@@ -17,7 +17,7 @@ const PersonnelRegister = () => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/personnel/register', {
+            const response = await axios.post('https://clearanceportalbackend.onrender.com/api/personnel/register', {
                 name,
                 departmentName,
                 password,
