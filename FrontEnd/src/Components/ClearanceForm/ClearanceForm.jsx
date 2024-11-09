@@ -25,7 +25,7 @@ const ClearanceForm = ({ student }) => {
         }
 
         try {
-            const response = await axios.post('http://localhost:5000/api/clearances', {
+            const response = await axios.post('https://clearanceportalbackend.onrender.com/api/clearances', {
                 admissionNumber: student.admissionNumber,
                 department: selectedDepartment,
                 status: 'pending' // Initial status
