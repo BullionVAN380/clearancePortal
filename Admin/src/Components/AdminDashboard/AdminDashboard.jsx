@@ -16,7 +16,7 @@ const AdminDashboard = ({ userRole }) => {
         const fetchClearanceApplications = async () => {
             try {
                 console.log('Fetching clearances for department:', userRole);
-                const response = await axios.get(`http://localhost:5000/api/clearances`, {
+                const response = await axios.get(`https://clearanceportalbackend.onrender.com/api/clearances`, {
                     params: { department: userRole }
                 });
                 setClearanceApplications(response.data);
@@ -33,7 +33,7 @@ const AdminDashboard = ({ userRole }) => {
 
     const handleApproval = async (admissionNumber) => {
         try {
-            const url = `http://localhost:5000/api/clearances/${encodeURIComponent(admissionNumber)}/${encodeURIComponent(userRole)}`;
+            const url = `https://clearanceportalbackend.onrender.com/api/clearances/${encodeURIComponent(admissionNumber)}/${encodeURIComponent(userRole)}`;
             await axios.put(url, { status: 'approved' });
             setClearanceApplications(clearanceApplications.map(app =>
                 app.admissionNumber === admissionNumber
@@ -47,7 +47,7 @@ const AdminDashboard = ({ userRole }) => {
 
     const handleRejection = async (admissionNumber) => {
         try {
-            const url = `http://localhost:5000/api/clearances/${encodeURIComponent(admissionNumber)}/${encodeURIComponent(userRole)}`;
+            const url = `https://clearanceportalbackend.onrender.com/api/clearances/${encodeURIComponent(admissionNumber)}/${encodeURIComponent(userRole)}`;
             console.log('Rejection URL:', url); // Debug log
             await axios.put(url, { status: 'rejected' });
             setClearanceApplications(clearanceApplications.map(app =>
@@ -65,7 +65,7 @@ const AdminDashboard = ({ userRole }) => {
         if (studentName && admissionNumber && course) { 
             try {
                 const newStudent = { name: studentName, admissionNumber, course }; // Remove clearanceStatus
-                const response = await axios.post('http://localhost:5000/api/students', newStudent);
+                const response = await axios.post('https://clearanceportalbackend.onrender.com/api/students', newStudent);
                 setStudents([...students, response.data]); // Ensure setStudents is defined or remove if unnecessary
                 setStudentName('');
                 setAdmissionNumber('');
