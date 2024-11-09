@@ -23,7 +23,7 @@ const allApproved = clearanceData.length === 8 && clearanceData.every((item) => 
         const fetchClearanceData = async () => {
             try {
                 const encodedAdmissionNumber = encodeURIComponent(student.admissionNumber);
-                const response = await axios.get(`http://localhost:5000/api/clearances/${encodedAdmissionNumber}`);
+                const response = await axios.get(`https://clearanceportalbackend.onrender.com/api/clearances/${encodedAdmissionNumber}`);
                 setClearanceData(response.data);
             } catch (err) {
                 setError('Failed to load clearance data.');
@@ -42,7 +42,7 @@ const allApproved = clearanceData.length === 8 && clearanceData.every((item) => 
             const fetchClearanceData = async () => {
                 try {
                     const encodedAdmissionNumber = encodeURIComponent(student.admissionNumber);
-                    const response = await axios.get(`http://localhost:5000/api/clearances/${encodedAdmissionNumber}`);
+                    const response = await axios.get(`https://clearanceportalbackend.onrender.com/api/clearances/${encodedAdmissionNumber}`);
                     setClearanceData(response.data);
                 } catch (err) {
                     console.error('Error fetching clearance data:', err);
